@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+    buildToolsVersion globalConfiguration["androidBuildToolsVersion"]
+
+    defaultConfig {
+        minSdkVersion globalConfiguration["androidMinSdkVersion"]
+        targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
+
+        applicationId globalConfiguration["androidApplicationId"]
+        versionCode globalConfiguration["androidVersionCode"]
+        versionName globalConfiguration["androidVersionName"]
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    def presentationDependencies = rootProject.ext.presentationDependencies
+
+    compile project(':domain')
+    compile project(':data')
+
+    implementation presentationDependencies.supportDesign
+    implementation presentationDependencies.recyclerView
+    implementation presentationDependencies.supportV4
+    implementation presentationDependencies.appCompat
+    implementation presentationDependencies.constraintLayout
+    implementation presentationDependencies.dagger
+    implementation presentationDependencies.daggerSupport
+    provided presentationDependencies.javaxAnnotation
+    annotationProcessor presentationDependencies.daggerCompiler
+    implementation presentationDependencies.glide
+    implementation presentationDependencies.maps
+    implementation presentationDependencies.location
+}
