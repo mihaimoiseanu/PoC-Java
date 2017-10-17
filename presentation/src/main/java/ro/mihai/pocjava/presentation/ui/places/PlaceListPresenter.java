@@ -6,7 +6,7 @@ import javax.inject.Inject;
 
 import ro.mihai.pocjava.domain.exception.DefaultErrorBundle;
 import ro.mihai.pocjava.domain.interactor.DefaultObserver;
-import ro.mihai.pocjava.domain.interactor.GetPlaces;
+import ro.mihai.pocjava.domain.interactor.places.GetPlaces;
 import ro.mihai.pocjava.domain.models.PlacesResponse;
 import ro.mihai.pocjava.presentation.di.PerActivity;
 import ro.mihai.pocjava.presentation.ui.base.Presenter;

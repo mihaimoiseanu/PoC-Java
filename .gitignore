@@ -6,3 +6,7 @@
 /captures
 .externalNativeBuild
 /.idea/
+data/libs/
+data/src/main/res/drawable/
+domain/libs/
+presentation/libs/

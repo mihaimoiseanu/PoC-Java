@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RecyclerAdapter">
+        <attr name="itemLayout" format="reference" />
+        <attr name="spanCount" format="integer" />
+        <attr name="spacing" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CoverFlowRecyclerView">
+        <attr name="actionDistance" format="integer" />
+        <attr name="scaleDownGravity" format="float" />
+        <attr name="maxRotation" format="integer" />
+        <attr name="unselectedAlpha" format="float" />
+        <attr name="unselectedSaturation" format="float" />
+        <attr name="unselectedScale" format="float" />
+        <attr name="itemOffset" format="dimension" />
+    </declare-styleable>
+</resources>

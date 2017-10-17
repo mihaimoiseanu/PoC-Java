@@ -15,8 +15,8 @@ import ro.mihai.pocjava.domain.models.PlacesResponse;
 public interface PlaceService {
 
     @GET("nearbysearch/json")
-    Observable<PlacesResponse> getNearbyPlaces(@QueryMap Map<String, String> queries);
+    Observable<PlacesResponse> getNearbyPlaces(@QueryMap Map<String, Object> queries);
 
     @GET("details/json")
-    Observable<PlaceResponse> getPlaceDetails(@QueryMap Map<String, String> queries);
+    Observable<PlaceResponse> getPlaceDetails(@QueryMap Map<String, Object> queries);
 }

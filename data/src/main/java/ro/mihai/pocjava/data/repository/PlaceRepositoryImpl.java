@@ -6,6 +6,8 @@ import javax.inject.Singleton;
 import io.reactivex.Observable;
 import ro.mihai.pocjava.data.service.PlaceService;
 import ro.mihai.pocjava.data.service.RetrofitWrapper;
+import ro.mihai.pocjava.domain.interactor.place.PlaceParams;
+import ro.mihai.pocjava.domain.interactor.places.PlacesParams;
 import ro.mihai.pocjava.domain.models.PlaceResponse;
 import ro.mihai.pocjava.domain.models.PlacesResponse;
 import ro.mihai.pocjava.domain.repository.PlaceRepository;
@@ -23,12 +25,13 @@ public class PlaceRepositoryImpl implements PlaceRepository {
     }
 
     @Override
-    public Observable<PlacesResponse> places() {
-        return null;
+    public Observable<PlacesResponse> places(PlacesParams placesParams) {
+        return placeService.getNearbyPlaces(placesParams.getParams());
     }
 
     @Override
-    public Observable<PlaceResponse> place() {
-        return null;
+    public Observable<PlaceResponse> place(PlaceParams placeParams) {
+        return placeService.getPlaceDetails(placeParams.getParams());
     }
+
 }
