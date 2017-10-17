@@ -9,6 +9,7 @@ import ro.mihai.pocjava.domain.executor.PostExecutionThread;
 import ro.mihai.pocjava.domain.executor.ThreadExecutor;
 import ro.mihai.pocjava.domain.repository.PlaceRepository;
 import ro.mihai.pocjava.presentation.di.modules.ApplicationModule;
+import ro.mihai.pocjava.presentation.registry.ViewModelRegistry;
 import ro.mihai.pocjava.presentation.ui.base.BaseActivity;
 
 /**
@@ -27,5 +28,7 @@ public interface IAppComponent {
     PostExecutionThread postExecutionThread();
 
     PlaceRepository placeRepository();
+
+    ViewModelRegistry viewModelRegistry();
 
 }

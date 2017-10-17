@@ -1,5 +1,7 @@
 package ro.mihai.pocjava.data.repository;
 
+import android.support.annotation.NonNull;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -25,8 +27,8 @@ public class PlaceRepositoryImpl implements PlaceRepository {
     }
 
     @Override
-    public Observable<PlacesResponse> places(PlacesParams placesParams) {
-        return placeService.getNearbyPlaces(placesParams.getParams());
+    public Observable<PlacesResponse> places(@NonNull PlacesParams placesParams) {
+        return placeService.getNearbyPlaces(null);
     }
 
     @Override

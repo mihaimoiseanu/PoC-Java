@@ -9,14 +9,16 @@ import ro.mihai.pocjava.domain.interactor.DefaultObserver;
 import ro.mihai.pocjava.domain.interactor.places.GetPlaces;
 import ro.mihai.pocjava.domain.models.PlacesResponse;
 import ro.mihai.pocjava.presentation.di.PerActivity;
+import ro.mihai.pocjava.presentation.model.PlaceModel;
 import ro.mihai.pocjava.presentation.ui.base.Presenter;
+import ro.mihai.pocjava.presentation.views.ActionHandler;
 
 /**
  * Created by mihai on 16.10.2017.
  */
 
 @PerActivity
-public class PlaceListPresenter implements Presenter {
+public class PlaceListPresenter implements Presenter, ActionHandler<PlaceModel> {
 
     private PlaceListView placeListView;
 
@@ -73,6 +75,11 @@ public class PlaceListPresenter implements Presenter {
 
     private void showErrorMessage(DefaultErrorBundle defaultErrorBundle) {
         this.placeListView.showError(defaultErrorBundle.getErrorMessage());
+    }
+
+    @Override
+    public void onItemClick(PlaceModel item) {
+
     }
 
     private final class PlaceListObserver extends DefaultObserver<PlacesResponse> {

@@ -20,7 +20,7 @@ public class BindingViewHolder<T extends ViewDataBinding> extends RecyclerView.V
     }
 
     public void bind(final Object item, final ActionHandler handler) {
-        binding.setVariable(BR.item);
+        binding.setVariable(BR.item, item);
         binding.setVariable(BR.handler, handler);
         binding.executePendingBindings();
 

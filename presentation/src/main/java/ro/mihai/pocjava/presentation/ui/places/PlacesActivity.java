@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import ro.mihai.pocjava.R;
 import ro.mihai.pocjava.presentation.di.HasComponent;
 import ro.mihai.pocjava.presentation.di.components.DaggerIPlaceComponent;
 import ro.mihai.pocjava.presentation.di.components.IPlaceComponent;
@@ -27,7 +28,11 @@ public class PlacesActivity extends BaseActivity implements HasComponent<IPlaceC
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         this.initInjector();
+        if (savedInstanceState == null) {
+            addFragment(R.id.main_container, new PlaceListFragment());
+        }
     }
 
     private void initInjector() {

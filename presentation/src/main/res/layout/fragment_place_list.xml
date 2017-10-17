@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="ro.mihai.pocjava.presentation.ui.places.PlaceViewModel" />
+
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ro.mihai.pocjava.presentation.views.recyclerviews.ListRecyclerView
+                android:id="@+id/place_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:itemLayout="@layout/item_place"
+                app:items="@{vm.items}" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+    </RelativeLayout>
+</layout>

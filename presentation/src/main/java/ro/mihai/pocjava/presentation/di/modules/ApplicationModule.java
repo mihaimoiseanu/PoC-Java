@@ -13,6 +13,7 @@ import ro.mihai.pocjava.domain.executor.ThreadExecutor;
 import ro.mihai.pocjava.domain.repository.PlaceRepository;
 import ro.mihai.pocjava.presentation.AndroidApplication;
 import ro.mihai.pocjava.presentation.UIThread;
+import ro.mihai.pocjava.presentation.registry.ViewModelRegistry;
 
 /**
  * Created by mihai on 16.10.2017.
@@ -34,19 +35,25 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    ThreadExecutor provideThreadExecutor(JobExecutor jobExecutor){
+    ThreadExecutor provideThreadExecutor(JobExecutor jobExecutor) {
         return jobExecutor;
     }
 
     @Provides
     @Singleton
-    PostExecutionThread providePostExecutionThread(UIThread uiThread){
+    PostExecutionThread providePostExecutionThread(UIThread uiThread) {
         return uiThread;
     }
 
     @Provides
     @Singleton
-    PlaceRepository providePlaceRepository(PlaceRepositoryImpl placeRepository){
+    PlaceRepository providePlaceRepository(PlaceRepositoryImpl placeRepository) {
         return placeRepository;
+    }
+
+    @Provides
+    @Singleton
+    ViewModelRegistry provideViewModelRegistry() {
+        return new ViewModelRegistry();
     }
 }
