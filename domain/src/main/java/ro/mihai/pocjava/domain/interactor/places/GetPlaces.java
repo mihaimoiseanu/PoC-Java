@@ -13,6 +13,8 @@ import ro.mihai.pocjava.domain.repository.PlaceRepository;
 
 /**
  * Created by mihai on 16.10.2017.
+ * This class is an implementation of {@link UseCase} that represents a use case
+ * for retrieving a collection of all {@link PlaceModel}
  */
 
 public class GetPlaces extends UseCase<List<PlaceModel>, PlacesParams> {

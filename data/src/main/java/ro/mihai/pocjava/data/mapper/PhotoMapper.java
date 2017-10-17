@@ -12,6 +12,8 @@ import ro.mihai.pocjava.domain.model.PhotoModel;
 
 /**
  * Created by mihai on 17.10.2017.
+ * Mapper class used to transform {@link Photo} (int the data layer) to {@link PhotoModel}
+ * in the domain layer
  */
 @Singleton
 public class PhotoMapper {
@@ -20,6 +22,12 @@ public class PhotoMapper {
     public PhotoMapper() {
     }
 
+    /**
+     * Transform a {@link Photo} into a {@link PhotoModel}
+     *
+     * @param photo Object to be transformed
+     * @return {@link PhotoModel} if {@link PhotoModel} otherwise null
+     */
     public PhotoModel transform(Photo photo) {
         if (photo == null) {
             return null;
@@ -29,6 +37,12 @@ public class PhotoMapper {
         return photoModel;
     }
 
+    /**
+     * Transform a List of {@link Photo} into a Collection of {@link PhotoModel}
+     *
+     * @param photoCollection Object Collection to be transformed
+     * @return {@link PhotoModel} if valid {@link Photo} otherwise empty list
+     */
     public Collection<PhotoModel> transform(Collection<Photo> photoCollection) {
         Collection<PhotoModel> photoModelCollection;
         if (photoCollection != null && !photoCollection.isEmpty()) {

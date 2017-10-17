@@ -2,6 +2,7 @@ package ro.mihai.pocjava.domain.exception;
 
 /**
  * Created by mihai on 16.10.2017.
+ * Wrapper around Exceptions to manage default errors.
  */
 
 public class DefaultErrorBundle implements ErrorBundle {

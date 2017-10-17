@@ -13,6 +13,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by mihai on 16.10.2017.
+ * <p>
+ * A wrapper around {@link Retrofit} used to generate the desired services
  */
 @Singleton
 public class RetrofitWrapper {
@@ -43,6 +45,13 @@ public class RetrofitWrapper {
                 .build();
     }
 
+    /**
+     * Generic method used to generate {@link Retrofit} services
+     *
+     * @param clazz interface used generate the service
+     * @param <T>
+     * @return created service
+     */
     public <T> T createService(Class<T> clazz) {
         return retrofit.create(clazz);
     }

@@ -2,10 +2,9 @@ package ro.mihai.pocjava.domain.interactor.place;
 
 import java.util.Map;
 
-import ro.mihai.pocjava.domain.interactor.places.PlacesParams;
-
 /**
  * Created by mihai on 17.10.2017.
+ * This class represents the params used for getting places
  */
 
 public class PlaceParams {
@@ -32,7 +31,7 @@ public class PlaceParams {
         }
     }
 
-    public Map<String,Object> getParams(){
+    public Map<String, Object> getParams() {
         return params;
     }
 }

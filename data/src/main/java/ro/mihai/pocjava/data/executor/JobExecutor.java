@@ -17,6 +17,9 @@ import ro.mihai.pocjava.domain.executor.ThreadExecutor;
  * Created by mihai on 16.10.2017.
  */
 
+/**
+ * Decorated {@link ThreadPoolExecutor}
+ */
 @Singleton
 public class JobExecutor implements ThreadExecutor {
 

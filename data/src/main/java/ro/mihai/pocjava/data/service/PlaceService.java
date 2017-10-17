@@ -10,6 +10,8 @@ import ro.mihai.pocjava.data.models.PlacesResponse;
 
 /**
  * Created by mihai on 16.10.2017.
+ * <p>
+ * Interfaced used to access API endpoints.
  */
 
 public interface PlaceService {

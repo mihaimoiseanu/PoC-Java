@@ -53,7 +53,7 @@ public class PlaceListPresenter implements Presenter, ActionHandler<PlaceModel> 
 
 
     public void getPlacesList(Double lat, Double lng, String key) {
-        PlacesParams placesParams = new PlacesParams.Builder(key, lat + "," + lng, 20)
+        PlacesParams placesParams = new PlacesParams.Builder(key, lat + "," + lng, 200)
                 .build();
         this.getPlacesCase.execute(new PlaceListObserver(), placesParams);
     }

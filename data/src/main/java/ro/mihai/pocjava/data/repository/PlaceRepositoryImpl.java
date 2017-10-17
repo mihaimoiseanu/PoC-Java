@@ -18,12 +18,20 @@ import ro.mihai.pocjava.domain.repository.PlaceRepository;
 
 /**
  * Created by mihai on 16.10.2017.
+ * <p>
+ * {@link PlaceRepository} for retrieving data.
  */
 @Singleton
 public class PlaceRepositoryImpl implements PlaceRepository {
     private final PlaceService placeService;
     private final PlaceMapper placeMapper;
 
+    /**
+     * Constructs a {@link PlaceRepository}
+     *
+     * @param retrofitWrapper {@link RetrofitWrapper}.
+     * @param placeMapper     {@link PlaceMapper}.
+     */
     @Inject
     public PlaceRepositoryImpl(RetrofitWrapper retrofitWrapper, PlaceMapper placeMapper) {
         placeService = retrofitWrapper.createService(PlaceService.class);

@@ -5,6 +5,7 @@ import java.util.Map;
 
 /**
  * Created by mihai on 17.10.2017.
+ * This class represents the params used for getting a place
  */
 
 public class PlacesParams {
@@ -34,7 +35,7 @@ public class PlacesParams {
         }
     }
 
-    public Map<String,Object> getParams(){
+    public Map<String, Object> getParams() {
         return params;
     }
 }
