@@ -1,10 +1,11 @@
 package ro.mihai.pocjava.domain.repository;
 
+import java.util.List;
+
 import io.reactivex.Observable;
 import ro.mihai.pocjava.domain.interactor.place.PlaceParams;
 import ro.mihai.pocjava.domain.interactor.places.PlacesParams;
-import ro.mihai.pocjava.domain.models.PlaceResponse;
-import ro.mihai.pocjava.domain.models.PlacesResponse;
+import ro.mihai.pocjava.domain.model.PlaceModel;
 
 /**
  * Created by mihai on 16.10.2017.
@@ -12,8 +13,8 @@ import ro.mihai.pocjava.domain.models.PlacesResponse;
 
 public interface PlaceRepository {
 
-    Observable<PlacesResponse> places(PlacesParams params);
+    Observable<List<PlaceModel>> places(PlacesParams params);
 
-    Observable<PlaceResponse> place(PlaceParams params);
+    Observable<PlaceModel> place(PlaceParams params);
 
 }

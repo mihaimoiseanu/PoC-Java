@@ -1,5 +1,6 @@
 package ro.mihai.pocjava.domain.interactor.places;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -11,12 +12,13 @@ public class PlacesParams {
     private Map<String, Object> params;
 
     private PlacesParams(String key, String location, int radius) {
+        params = new HashMap<>();
         params.put("key", key);
         params.put("location", location);
         params.put("radius", radius);
     }
 
-    public class Builder {
+    public static class Builder {
         private String key;
         private String location;
         private int radius;

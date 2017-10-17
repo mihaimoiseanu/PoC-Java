@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ro.mihai.pocjava.BR;
-import ro.mihai.pocjava.presentation.model.PlaceModel;
+import ro.mihai.pocjava.domain.model.PlaceModel;
 import ro.mihai.pocjava.presentation.ui.base.BaseViewModel;
 
 /**
@@ -24,7 +24,7 @@ public class PlaceViewModel extends BaseViewModel {
 
     public void setItems(List<PlaceModel> items) {
         this.items = items;
-        notifyPropertyChanged(BR.item);
+        notifyPropertyChanged(BR.items);
     }
 
 

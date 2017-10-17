@@ -6,14 +6,14 @@ import io.reactivex.Observable;
 import ro.mihai.pocjava.domain.executor.PostExecutionThread;
 import ro.mihai.pocjava.domain.executor.ThreadExecutor;
 import ro.mihai.pocjava.domain.interactor.UseCase;
-import ro.mihai.pocjava.domain.models.PlaceResponse;
+import ro.mihai.pocjava.domain.model.PlaceModel;
 import ro.mihai.pocjava.domain.repository.PlaceRepository;
 
 /**
  * Created by mihai on 16.10.2017.
  */
 
-public class GetPlace extends UseCase<PlaceResponse, PlaceParams> {
+public class GetPlace extends UseCase<PlaceModel, PlaceParams> {
     private final PlaceRepository placeRepository;
 
     @Inject
@@ -25,7 +25,7 @@ public class GetPlace extends UseCase<PlaceResponse, PlaceParams> {
     }
 
     @Override
-    public Observable<PlaceResponse> buildUseCaseObservable(PlaceParams params) {
+    public Observable<PlaceModel> buildUseCaseObservable(PlaceParams params) {
         return placeRepository.place(params);
     }
 }

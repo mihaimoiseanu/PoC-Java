@@ -2,14 +2,16 @@ package ro.mihai.pocjava.presentation.ui.places;
 
 import android.support.annotation.NonNull;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import ro.mihai.pocjava.domain.exception.DefaultErrorBundle;
 import ro.mihai.pocjava.domain.interactor.DefaultObserver;
 import ro.mihai.pocjava.domain.interactor.places.GetPlaces;
-import ro.mihai.pocjava.domain.models.PlacesResponse;
+import ro.mihai.pocjava.domain.interactor.places.PlacesParams;
+import ro.mihai.pocjava.domain.model.PlaceModel;
 import ro.mihai.pocjava.presentation.di.PerActivity;
-import ro.mihai.pocjava.presentation.model.PlaceModel;
 import ro.mihai.pocjava.presentation.ui.base.Presenter;
 import ro.mihai.pocjava.presentation.views.ActionHandler;
 
@@ -49,20 +51,15 @@ public class PlaceListPresenter implements Presenter, ActionHandler<PlaceModel> 
         this.placeListView = null;
     }
 
-    public void init() {
-        this.loadPlaceList();
+
+    public void getPlacesList(Double lat, Double lng, String key) {
+        PlacesParams placesParams = new PlacesParams.Builder(key, lat + "," + lng, 20)
+                .build();
+        this.getPlacesCase.execute(new PlaceListObserver(), placesParams);
     }
 
-    private void loadPlaceList() {
-        this.getPlacesList();
-    }
-
-    private void getPlacesList() {
-        this.getPlacesCase.execute(new PlaceListObserver(), null);
-    }
-
-    private void showUsersCollectionInView(PlacesResponse responses) {
-
+    private void showUsersCollectionInView(List<PlaceModel> places) {
+        placeListView.renderPlaceList(places);
     }
 
     private void showViewLoading() {
@@ -82,9 +79,9 @@ public class PlaceListPresenter implements Presenter, ActionHandler<PlaceModel> 
 
     }
 
-    private final class PlaceListObserver extends DefaultObserver<PlacesResponse> {
+    private final class PlaceListObserver extends DefaultObserver<List<PlaceModel>> {
         @Override
-        public void onNext(PlacesResponse value) {
+        public void onNext(List<PlaceModel> value) {
             PlaceListPresenter.this.showUsersCollectionInView(value);
         }
 

@@ -11,7 +11,8 @@ import android.view.WindowManager;
 
 public final class DeviceUtils {
 
-    private DeviceUtils(){}
+    private DeviceUtils() {
+    }
 
     public static int getScreenWidthPixels(Context context) {
         WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
@@ -19,6 +20,5 @@ public final class DeviceUtils {
         Point size = new Point();
         display.getSize(size);
         return size.x;
-
     }
 }

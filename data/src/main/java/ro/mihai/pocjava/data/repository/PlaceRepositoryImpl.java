@@ -2,16 +2,18 @@ package ro.mihai.pocjava.data.repository;
 
 import android.support.annotation.NonNull;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.Observable;
+import ro.mihai.pocjava.data.mapper.PlaceMapper;
 import ro.mihai.pocjava.data.service.PlaceService;
 import ro.mihai.pocjava.data.service.RetrofitWrapper;
 import ro.mihai.pocjava.domain.interactor.place.PlaceParams;
 import ro.mihai.pocjava.domain.interactor.places.PlacesParams;
-import ro.mihai.pocjava.domain.models.PlaceResponse;
-import ro.mihai.pocjava.domain.models.PlacesResponse;
+import ro.mihai.pocjava.domain.model.PlaceModel;
 import ro.mihai.pocjava.domain.repository.PlaceRepository;
 
 /**
@@ -19,21 +21,23 @@ import ro.mihai.pocjava.domain.repository.PlaceRepository;
  */
 @Singleton
 public class PlaceRepositoryImpl implements PlaceRepository {
-    private PlaceService placeService;
+    private final PlaceService placeService;
+    private final PlaceMapper placeMapper;
 
     @Inject
-    public PlaceRepositoryImpl(RetrofitWrapper retrofitWrapper) {
+    public PlaceRepositoryImpl(RetrofitWrapper retrofitWrapper, PlaceMapper placeMapper) {
         placeService = retrofitWrapper.createService(PlaceService.class);
+        this.placeMapper = placeMapper;
     }
 
     @Override
-    public Observable<PlacesResponse> places(@NonNull PlacesParams placesParams) {
-        return placeService.getNearbyPlaces(null);
+    public Observable<List<PlaceModel>> places(@NonNull PlacesParams placesParams) {
+        return placeService.getNearbyPlaces(placesParams.getParams()).map(placeMapper::transform);
     }
 
     @Override
-    public Observable<PlaceResponse> place(PlaceParams placeParams) {
-        return placeService.getPlaceDetails(placeParams.getParams());
+    public Observable<PlaceModel> place(PlaceParams placeParams) {
+        return placeService.getPlaceDetails(placeParams.getParams()).map(placeMapper::transform);
     }
 
 }

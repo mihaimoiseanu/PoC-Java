@@ -5,8 +5,8 @@ import java.util.Map;
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.QueryMap;
-import ro.mihai.pocjava.domain.models.PlaceResponse;
-import ro.mihai.pocjava.domain.models.PlacesResponse;
+import ro.mihai.pocjava.data.models.PlaceResponse;
+import ro.mihai.pocjava.data.models.PlacesResponse;
 
 /**
  * Created by mihai on 16.10.2017.

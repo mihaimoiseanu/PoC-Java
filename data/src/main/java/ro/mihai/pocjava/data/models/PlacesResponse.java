@@ -7,6 +7,24 @@ import java.util.List;
  */
 
 public class PlacesResponse {
-    private List<Place> response;
+    private List<Place> results;
     private String status;
+
+    public List<Place> getResults() {
+        return results;
+    }
+
+    public PlacesResponse setResults(List<Place> results) {
+        this.results = results;
+        return this;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public PlacesResponse setStatus(String status) {
+        this.status = status;
+        return this;
+    }
 }

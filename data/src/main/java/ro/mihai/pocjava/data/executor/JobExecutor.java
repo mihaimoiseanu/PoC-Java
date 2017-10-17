@@ -49,16 +49,13 @@ public class JobExecutor implements ThreadExecutor {
 
         @Override
         public Thread newThread(final Runnable runnable) {
-            Runnable wrapperRunnable = new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        android.os.Process.setThreadPriority(mThreadPriority);
-                    } catch (Throwable t) {
+            Runnable wrapperRunnable = () -> {
+                try {
+                    Process.setThreadPriority(mThreadPriority);
+                } catch (Throwable t) {
 
-                    }
-                    runnable.run();
                 }
+                runnable.run();
             };
             return new Thread(wrapperRunnable);
         }

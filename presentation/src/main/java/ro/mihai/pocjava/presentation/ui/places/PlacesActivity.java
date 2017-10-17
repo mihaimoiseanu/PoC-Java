@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import ro.mihai.pocjava.R;
+import ro.mihai.pocjava.domain.model.PlaceModel;
 import ro.mihai.pocjava.presentation.di.HasComponent;
 import ro.mihai.pocjava.presentation.di.components.DaggerIPlaceComponent;
 import ro.mihai.pocjava.presentation.di.components.IPlaceComponent;
-import ro.mihai.pocjava.presentation.model.PlaceModel;
 import ro.mihai.pocjava.presentation.ui.base.BaseActivity;
 
 /**

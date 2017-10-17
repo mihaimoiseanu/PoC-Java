@@ -1,8 +1,8 @@
 package ro.mihai.pocjava.presentation.ui.places;
 
-import java.util.Collection;
+import java.util.List;
 
-import ro.mihai.pocjava.presentation.model.PlaceModel;
+import ro.mihai.pocjava.domain.model.PlaceModel;
 import ro.mihai.pocjava.presentation.ui.base.LoadDataView;
 
 /**
@@ -11,7 +11,7 @@ import ro.mihai.pocjava.presentation.ui.base.LoadDataView;
 
 public interface PlaceListView extends LoadDataView {
 
-    void renderPlaceList(Collection<PlaceModel> placeModels);
+    void renderPlaceList(List<PlaceModel> placeModels);
 
     void viewPlace(PlaceModel placeModel);
 

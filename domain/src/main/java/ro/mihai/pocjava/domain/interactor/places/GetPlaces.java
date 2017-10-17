@@ -1,19 +1,21 @@
 package ro.mihai.pocjava.domain.interactor.places;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
 import ro.mihai.pocjava.domain.executor.PostExecutionThread;
 import ro.mihai.pocjava.domain.executor.ThreadExecutor;
 import ro.mihai.pocjava.domain.interactor.UseCase;
-import ro.mihai.pocjava.domain.models.PlacesResponse;
+import ro.mihai.pocjava.domain.model.PlaceModel;
 import ro.mihai.pocjava.domain.repository.PlaceRepository;
 
 /**
  * Created by mihai on 16.10.2017.
  */
 
-public class GetPlaces extends UseCase<PlacesResponse, PlacesParams> {
+public class GetPlaces extends UseCase<List<PlaceModel>, PlacesParams> {
 
     private final PlaceRepository placeRepository;
 
@@ -26,7 +28,7 @@ public class GetPlaces extends UseCase<PlacesResponse, PlacesParams> {
     }
 
     @Override
-    public Observable<PlacesResponse> buildUseCaseObservable(PlacesParams placesParams) {
+    public Observable<List<PlaceModel>> buildUseCaseObservable(PlacesParams placesParams) {
         return placeRepository.places(placesParams);
     }
 
