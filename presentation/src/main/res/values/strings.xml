@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">PoC-JAVA</string>
     <string name="google_api_key">AIzaSyADBIqAzVDs-I2z7VGKpPMLXqRwyZhSue0</string>
-    <string name="google_photos_url">https://maps.googleapis.com/maps/api/placeModel/photo?maxwidth=%d&amp;photoreference=%s&amp;key=%s</string>
+    <string name="google_photos_url">https://maps.googleapis.com/maps/api/place/photo?maxwidth=%d&amp;photoreference=%s&amp;key=%s</string>
 </resources>

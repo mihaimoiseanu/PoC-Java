@@ -10,13 +10,13 @@ import ro.mihai.pocjava.domain.model.PlaceModel;
 import ro.mihai.pocjava.presentation.di.HasComponent;
 import ro.mihai.pocjava.presentation.di.components.DaggerIPlaceComponent;
 import ro.mihai.pocjava.presentation.di.components.IPlaceComponent;
-import ro.mihai.pocjava.presentation.ui.base.BaseActivity;
+import ro.mihai.pocjava.presentation.ui.navigation.NavigationViewActivity;
 
 /**
  * Created by mihai on 16.10.2017.
  */
 
-public class PlacesActivity extends BaseActivity implements HasComponent<IPlaceComponent>,
+public class PlacesActivity extends NavigationViewActivity implements HasComponent<IPlaceComponent>,
         PlaceListFragment.PlaceListListener {
 
     public static Intent getCallingIntent(Context context) {
@@ -28,7 +28,6 @@ public class PlacesActivity extends BaseActivity implements HasComponent<IPlaceC
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         this.initInjector();
         if (savedInstanceState == null) {
             addFragment(R.id.main_container, new PlaceListFragment());
@@ -40,6 +39,11 @@ public class PlacesActivity extends BaseActivity implements HasComponent<IPlaceC
                 .iAppComponent(getAppComponent())
                 .activityModule(getActivityModule())
                 .build();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_main;
     }
 
     @Override
